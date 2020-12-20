@@ -1,0 +1,36 @@
+
+The Object class represents one of JavaScript's data types. 
+JavaScript objects are containers for named values called properties or methods.
+While these primitive data-types Number, String, Boolean, null, undefined and symbol all store a single value each 
+
+Objects are more complex and each object may contain any combination of these primitive data-types as well as reference data-types.
+
+All objects in JavaScript are instances of Object; and inherits properties (including methods) from Object.prototype.
+
+An object can be created with figure brackets {…} with an optional list of properties. A property is a “key: value” pair, where key is a string  and value can be anything. ( key also called a “property name”),
+
+An empty object (“empty cabinet”) can be created using one of two syntaxes:
+let user = {}; 
+let user = new Object();
+
+Using figure brackets {} is preferred. This declaration is called an object literal.
+
+Key: value pairs can be assigned to objects with the following syntax:
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+To access a property, we can use the dot notation: obj.property or square brackets notation obj["property"].
+
+alert( user.name ); // John
+alert( user[name] ); // John
+
+To remove a property, we can use delete operator.
+
+delete user.age; // John
+delete user[age]; // John
+
+alert( "age" in user ); // returns true as user.age exists
+alert( "address" in user ); // returns false as user.address doesn't exist
