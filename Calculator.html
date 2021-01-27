@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Calculator</title>
+
+</head>
+<body>
+
+    <div style="display: grid; font-size: xx-large; font-family: monospace; justify-content: center;
+    height: 100%;">
+
+        <div style="display: flex;">
+           <input id = "inp" type="text" style="height: 60px; width: 60%; text-align: right; font-size: xx-large;">
+        </div>
+        
+        <div style="display: flex;">
+            <div id="7" style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">7</div>
+            <div id="8" style="padding: 20px; margin: 4px;background-color: rgba(124, 243, 243, 0.932)">8</div>
+            <div id="9" style="padding: 20px; margin: 4px;background-color: rgba(124, 243, 243, 0.932)">9</div>
+            <div id="*" style="padding: 20px; margin: 4px;background-color: rgba(124, 243, 243, 0.932)">*</div>
+        </div>
+        
+        <div style="display: flex;">
+            <div id="4" style="padding: 20px; margin: 4px; background-color:  rgba(124, 243, 243, 0.932)">4</div>
+            <div id="5" style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">5</div>
+            <div id="6" style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">6</div>
+            <div id="-" style="padding: 20px; margin: 4px;background-color: rgba(124, 243, 243, 0.932)">-</div>
+        </div>
+        <div style="display: flex;">
+            <div id="1" style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">1</div>
+            <div id="2" style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">2</div>
+            <div id="3" style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">3</div>
+            <div id="+" style="padding: 20px; margin: 4px;background-color: rgba(124, 243, 243, 0.932)">+</div>
+        </div>
+        <div style="display: flex;">
+            <div id="." style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">.</div>
+            <div id="0" style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">0</div>
+            <div id="/" style="padding: 20px; margin: 4px; background-color: rgba(124, 243, 243, 0.932)">/</div>
+            <div id="=" style="padding: 20px; margin: 4px;background-color: rgba(124, 243, 243, 0.932)">=</div>
+        </div>
+    </div>
+
+<script>
+    document.getElementById('7').onclick = f7a;
+    document.getElementById('7').onmouseover = f7b;
+    document.getElementById('7').onmouseleave = f7c;
+
+    document.getElementById('1').onclick = f1a;
+    document.getElementById('1').onmouseover = f1b;
+    document.getElementById('1').onmouseleave = f1c;
+
+    document.getElementById('2').onclick = f2a;
+    document.getElementById('2').onmouseover = f2b;
+    document.getElementById('2').onmouseleave = f2c;
+
+    document.getElementById('3').onclick = f3a;
+    document.getElementById('3').onmouseover = f3b;
+    document.getElementById('3').onmouseleave = f3c;
+    
+    document.getElementById('4').onclick = f4a;
+    document.getElementById('4').onmouseover = f4b;
+    document.getElementById('4').onmouseleave = f4c;
+    
+    document.getElementById('5').onclick = f5a;
+    document.getElementById('5').onmouseover = f5b;
+    document.getElementById('5').onmouseleave = f5c;
+    
+    document.getElementById('6').onclick = f6a;
+    document.getElementById('6').onmouseover = f6b;
+    document.getElementById('6').onmouseleave = f6c;
+    
+    document.getElementById('8').onclick = f8a;
+    document.getElementById('8').onmouseover = f8b;
+    document.getElementById('8').onmouseleave = f8c;
+    
+    document.getElementById('9').onclick = f9a;
+    document.getElementById('9').onmouseover = f9b;
+    document.getElementById('9').onmouseleave = f9c;
+    
+    document.getElementById('0').onclick = f0a;
+    document.getElementById('0').onmouseover = f0b;
+    document.getElementById('0').onmouseleave = f0c;
+    
+    document.getElementById('*').onclick = fmula;
+    document.getElementById('*').onmouseover = fmulb;
+    document.getElementById('*').onmouseleave = fmulc;
+    
+    document.getElementById('/').onclick = fdiva;
+    document.getElementById('/').onmouseover = fdivb;
+    document.getElementById('/').onmouseleave = fdivc;
+    
+    document.getElementById('+').onclick = fadda;
+    document.getElementById('+').onmouseover = faddb;
+    document.getElementById('+').onmouseleave = faddc;
+
+    document.getElementById('-').onclick = fmina;
+    document.getElementById('-').onmouseover = fminb;
+    document.getElementById('-').onmouseleave = fminc;
+
+    document.getElementById('.').onclick = fdota;
+    document.getElementById('.').onmouseover = fdotb;
+    document.getElementById('.').onmouseleave = fdotc;
+    
+    document.getElementById('=').onclick = feqa;
+    document.getElementById('=').onmouseover = feqb;
+    document.getElementById('=').onmouseleave = feqc;
+
+    function f7a() {
+        document.getElementById('inp').value='7';
+    }
+    function f7b() {
+        document.getElementById('7').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f7c() {
+        document.getElementById('7').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+
+    function f1a() {
+        document.getElementById('inp').value='1';
+    }
+    function f1b() {
+        document.getElementById('1').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f1c() {
+        document.getElementById('1').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function f2a() {
+        document.getElementById('inp').value='2';
+    }
+    function f2b() {
+        document.getElementById('2').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f2c() {
+        document.getElementById('2').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function f3a() {
+        document.getElementById('inp').value='3';
+    }
+    function f3b() {
+        document.getElementById('3').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f3c() {
+        document.getElementById('3').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function f4a() {
+        document.getElementById('inp').value='4';
+    }
+    function f4b() {
+        document.getElementById('4').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f4c() {
+        document.getElementById('4').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function f5a() {
+        document.getElementById('inp').value='5';
+    }
+    function f5b() {
+        document.getElementById('5').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f5c() {
+        document.getElementById('5').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function f6a() {
+        document.getElementById('inp').value='6';
+    }
+    function f6b() {
+        document.getElementById('6').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f6c() {
+        document.getElementById('6').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function f8a() {
+        document.getElementById('inp').value='8';
+    }
+    function f8b() {
+        document.getElementById('8').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f8c() {
+        document.getElementById('8').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function f9a() {
+        document.getElementById('inp').value='9';
+    }
+    function f9b() {
+        document.getElementById('9').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f9c() {
+        document.getElementById('9').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function f0a() {
+        document.getElementById('inp').value='0';
+    }
+    function f0b() {
+        document.getElementById('0').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function f0c() {
+        document.getElementById('0').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function fmula() {
+        document.getElementById('inp').value='*';
+    }
+    function fmulb() {
+        document.getElementById('*').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function fmulc() {
+        document.getElementById('*').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function fdiva() {
+        document.getElementById('inp').value='/';
+    }
+    function fdivb() {
+        document.getElementById('/').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function fdivc() {
+        document.getElementById('/').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function fadda() {
+        document.getElementById('inp').value='+';
+    }
+    function faddb() {
+        document.getElementById('+').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function faddc() {
+        document.getElementById('+').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+    
+    function fmina() {
+        document.getElementById('inp').value='-';
+    }
+    function fminb() {
+        document.getElementById('-').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function fminc() {
+        document.getElementById('-').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+
+    function fdota() {
+        document.getElementById('inp').value='.';
+    }
+    function fdotb() {
+        document.getElementById('.').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function fdotc() {
+        document.getElementById('.').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+
+    function feqa() {
+        document.getElementById('inp').value='=';
+    }
+    function feqb() {
+        document.getElementById('=').style.backgroundColor='rgba(110, 216, 216, 0.932)';
+    }
+    function feqc() {
+        document.getElementById('=').style.backgroundColor='rgba(124, 243, 243, 0.932)';
+    }
+
+</script>
+</body>
+</html>
