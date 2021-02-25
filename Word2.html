@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title> Currency</title>
+</head>
+
+<body style="background-color:rgba(208, 223, 231, 0.733);">
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <span style="font-size: 30px;">Word </span>
+    </div>
+    <br><br><br>
+     <div  style="display: flex; justify-content: center; align-items: center;">
+        <button id='b1' >Get</button><br><br>
+    </div>
+    <br><br>
+
+    <div id='div2' style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+    </div>
+  
+    <div id='div3' style="display: flex; justify-content: center; align-items: center;">
+
+    </div>
+    
+    <script>
+
+        // 318fa9c69782602a4e478d06550478a6
+        // zomato api
+
+        // Key: 44c082823c99dcea6212830d577f4ffb
+        // Secret: 1517ba25887a45b5
+        // flicker
+        // https://www.flickr.com/services/rest/flickr.galleries.getPhotos
+
+        document.getElementById('b1').onclick = d1;
+
+        function d1() {
+            // country=document.getElementById('inp1').value
+            url='https://random-word-api.herokuapp.com/word?number=1'
+
+            fetch(url)
+            .then((resp) => resp.json())
+            .then((data) => {
+                disp(data)
+            })
+        }
+
+        function disp(data) {
+            data1=data[0].toUpperCase()
+            y=data[0].length
+            z=Math.floor(y/2)+1
+            cd=''
+            for (i=0; i<y; i++){
+                a=Math.random()
+                b=Math.round(a)
+                cd+=b
+            }
+            n=(cd.match(/0/g)||[]).length
+            div2=document.getElementById('div2')
+            div2.innerHTML='Word is: '+data1+
+            '<br>Length is :'+y+
+            '<br>Len2 is :'+z+
+            '<br>Code is :'+cd+
+            '<br>No zeros is :'+n
+            f1()
+
+            div3=document.getElementById('div3')
+            for (i=1; i<=y; i++) {
+                let diva = document.createElement('DIV');
+                divid = 'diva'+i
+                diva.setAttribute('id',divid)
+                diva.style.padding='20px'
+                diva.style.margin='4px'
+                diva.style.backgroundColor='#89ebebee'
+                div3.appendChild(diva);
+                div3a=document.getElementById(divid)
+                cd1=cd.split('')
+                data2=data1.split('')
+                if (cd1[i-1]==0) {w='?'} else {w=data2[i-1]}
+                div3a.innerHTML=w
+            }
+        }
+
+        function f1() {
+            if (n<2 || n>z) {d1()}
+        }
+         
+    </script>
+
+</body>
+</html>
