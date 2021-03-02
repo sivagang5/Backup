@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title> Word Game</title>
+    <style>
+        .dia {
+            padding: 2px;
+            background-color: white;
+        }
+    </style>
+</head>
+<!-- // Start button to start the Game
+// Image should be displayed as shown
+// Total right and wrong answers to be displayed
+// if player guesses the whole word player wins
+// 6 life lines
+// if player guesses wrong image changes
+// after result start new game -->
+<body style="background-color:rgba(208, 223, 231, 0.733);">
+    <div style="display: flex; justify-content: center; align-items: center; font-size: 20px;">
+        Word Game
+
+    </div><br>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        Lifelines
+
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img id='img1' src='diamond2.jpg' width='60px' class='dia'>
+        <img id='img2' src='diamond2.jpg' width='60px' class='dia'>
+        <img id='img3' src='diamond2.jpg' width='60px' class='dia'>
+        <img id='img4' src='diamond2.jpg' width='60px' class='dia'>
+        <img id='img5' src='diamond2.jpg' width='60px' class='dia'>
+        <img id='img6' src='diamond2.jpg' width='60px' class='dia'>
+    </div>
+    <br>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div>Points : </div>
+        <div id='point'>0</div>
+        
+    </div>
+    <br>
+    <div id='msg' style="display: flex; justify-content: center; align-items: center;">
+        Guess the word
+    </div>
+    <!-- <div style="display: flex; justify-content: center; align-items: center;">
+        <div id="d1" style="padding: 20px; margin: 4px;background-color:#89ebebee">?</div>
+        <div id="d2" style="padding: 20px; margin: 4px;background-color:#89ebebee">?</div>
+        <div id="d3" style="padding: 20px; margin: 4px;background-color:#89ebebee">?</div>
+        <div id="d4" style="padding: 20px; margin: 4px;background-color:#89ebebee">?</div>
+        <div id="d5" style="padding: 20px; margin: 4px;background-color:#89ebebee">?</div>
+        <div id="d6" style="padding: 20px; margin: 4px;background-color:#89ebebee">?</div>
+        <div id="d7" style="padding: 20px; margin: 4px;background-color:#89ebebee">?</div>
+        <div id="d8" style="padding: 20px; margin: 4px;background-color:#89ebebee">?</div>
+    </div> -->
+    <br>
+    <div id='div2' style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+    </div>
+    <div id='div3' style="display: flex; justify-content: center; align-items: center;">
+
+    </div>
+    <br>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        Click on the below letters
+    </div>
+    <div id='key' style="display: flex; justify-content: center; align-items: center;">
+
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div id="q" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">Q</div>
+        <div id="w" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">W</div>
+        <div id="e" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">E</div>
+        <div id="r" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">R</div>
+        <div id="t" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">T</div>
+        <div id="y" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">Y</div>
+        <div id="u" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">U</div>
+        <div id="i" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">I</div>
+        <div id="o" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">O</div>
+        <div id="p" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">P</div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div id="a" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">A</div>
+        <div id="s" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">S</div>
+        <div id="d" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">D</div>
+        <div id="f" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">F</div>
+        <div id="g" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">G</div>
+        <div id="h" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">H</div>
+        <div id="j" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">J</div>
+        <div id="k" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">K</div>
+        <div id="l" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">L</div>
+    </div>    
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div id="z" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">Z</div>
+        <div id="x" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">X</div>
+        <div id="c" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">C</div>
+        <div id="v" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">V</div>
+        <div id="b" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">B</div>
+        <div id="n" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">N</div>
+        <div id="m" style="padding: 10px; margin: 4px;background-color:#d1d8f5ee; width: 1%; height: 1%;">M</div>
+        
+    </div>
+    <br>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <button id='b1' style="height: 30px;">Test</button><br><br>
+        <button id='b2' style="height: 30px;">Refresh</button><br><br>
+
+    </div>
+
+    <script>
+        // document.getElementById('d1').onclick = a1('d1');
+        // document.getElementById('d2').onclick = a1('d2');
+
+        document.getElementById('b1').onclick = d1;
+        document.getElementById('b2').onclick = d2;
+      
+        msg=document.getElementById('msg')
+        ans=['A','E','I','O','U']
+
+        k1=document.getElementById('a')
+        k1.addEventListener('click',function(){event.stopPropagation(); key('A')})
+        k2=document.getElementById('b')
+        k2.addEventListener('click',function(){event.stopPropagation(); key('B')})
+    
+        // url='https://random-word-api.herokuapp.com/word?number=1'
+
+        // fetch(url)
+        // .then((resp) => resp.json())
+        // .then((data) => {
+        //     disp(data)
+            
+        // })
+    
+        // function disp(data) {
+        //     data1=data[0].toUpperCase()
+        //     y=data[0].length
+        //     z=Math.floor(y/2)+1
+        //     cd=''
+        //     for (i=0; i<y; i++){
+        //         a=Math.random()
+        //         b=Math.round(a)
+        //         cd+=b
+        //     }
+        //     n=(cd.match(/0/g)||[]).length
+        //     div2=document.getElementById('div2')
+        //     div2.innerHTML='Word is: '+data1+
+        //     '<br>Length is :'+y+
+        //     '<br>Len2 is :'+z+
+        //     '<br>Code is :'+cd+
+        //     '<br>No zeros is :'+n
+          
+        //     f1()
+
+        //     div3=document.getElementById('div3')
+        // ans=[]
+        //     for (i=1; i<=y; i++) {
+        //         let diva = document.createElement('DIV');
+        //         divid = 'diva'+i
+        //         diva.setAttribute('id',divid)
+        //         diva.style.padding='20px'
+        //         diva.style.margin='4px'
+        //         diva.style.backgroundColor='#89ebebee'
+        //         div3.appendChild(diva);
+        //         div3a=document.getElementById(divid)
+        //         cd1=cd.split('')
+        //         data2=data1.split('')
+        // if (cd1[i-1]==0) {w='?'; ans.push(data2[i-1])} else {w=data2[i-1]}
+        //         div3a.innerHTML=w
+        //     }
+        // }
+
+        function f1() {
+            if (n<2 || n>z) {d1()}
+        }
+
+        function d1() {
+            img=document.getElementById('img1')
+            img.setAttribute('src','diacrs2.jpg')
+        }
+
+        function d2() {
+            location.reload()
+        }
+
+        function a1(b) {
+            console.log('hello')
+            // document.getElementById('d1').style.backgroundColor='#89ebebee'
+            // c=document.getElementById(b)
+            // c.style.backgroundColor='#82d6d6ee'
+        }
+
+        function chk(key1) {
+            if (ans.includes(key1)) {
+                msg.innerHTML='the key pressed is included'
+            } else {
+                msg.innerHTML='the key pressed is not included' 
+            }
+            
+        }
+
+        function key(k) {
+            ky=document.getElementById('key')
+            ky.innerHTML='Hello World '+k
+        }
+
+        a11=document.getElementById('a')
+        a11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        a11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+        a11.addEventListener('click',function(){event.stopPropagation(); chk('A')})
+          
+        b11=document.getElementById('b')
+        b11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        b11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+        b11.addEventListener('click',function(){event.stopPropagation(); chk('B')})
+
+        c11=document.getElementById('c')
+        c11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        c11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+        c11.addEventListener('click',function(){event.stopPropagation(); chk('C')})
+
+        d11=document.getElementById('d')
+        d11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        d11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+        d11.addEventListener('click',function(){event.stopPropagation(); chk('D')})
+          
+        e11=document.getElementById('e')
+        e11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        e11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+        e11.addEventListener('click',function(){event.stopPropagation(); chk('E')})
+          
+        f11=document.getElementById('f')
+        f11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        f11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+          
+        g11=document.getElementById('g')
+        g11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        g11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+          
+        h11=document.getElementById('h')
+        h11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        h11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+          
+        i11=document.getElementById('i')
+        i11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        i11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+        i11.addEventListener('click',function(){event.stopPropagation(); chk('I')})
+          
+        o11=document.getElementById('o')
+        o11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        o11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+        o11.addEventListener('click',function(){event.stopPropagation(); chk('O')})
+          
+        u11=document.getElementById('u')
+        u11.addEventListener('mouseover',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#bcc4e5ee'})
+        u11.addEventListener('mouseout',function(){event.stopPropagation(); 
+            this.style.backgroundColor='#d1d8f5ee'})
+        u11.addEventListener('click',function(){event.stopPropagation(); chk('U')})
+          
+
+    </script>
+    
+</body>
+</html>
